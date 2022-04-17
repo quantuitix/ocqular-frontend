@@ -15,3 +15,11 @@ code {
 .pointer {
   cursor: pointer;
 }
+
+.link {
+  text-decoration: none;
+}
+
+.animate {
+  transition:  .3s all;
+}
