@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Main from "../../pages/main/Main";
 import ContactUs from "../contactUs/ContactUs";
 import FAQs from "../FAQs/FAQs";
@@ -17,7 +18,9 @@ const Landing = () => {
             printing aer since the 1500s, when an unknown printer took a galley
             of type and scr
           </p>
-          <button className="ms-auto mx-auto">Login / Register</button>
+          <Link to="/login" className="ms-auto mx-auto">
+            Login / Register
+          </Link>
         </div>
         <div className="col-12 col-md-6 d-flex align-items-center">
           <img
