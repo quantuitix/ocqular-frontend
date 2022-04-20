@@ -4,7 +4,9 @@ import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 import BadgeIcon from "@mui/icons-material/Badge";
 import ReceiptIcon from "@mui/icons-material/Receipt";
 import { useState } from "react";
-
+import { useHistory } from "react-router-dom";
+import Header from "../../components/header/Header";
+import Footer from "../../components/footer/Footer";
 const OPTIONS = [
   {
     icon: <TextSnippetIcon style={{ width: "100%", height: 100 }} />,
@@ -30,29 +32,53 @@ const OPTIONS = [
 
 const Main = () => {
   const [selectedDocType, setSelectedDocType] = useState(null);
+  const history = useHistory();
+  const handleSingleDocClick = () => {
+    if (selectedDocType === null) return;
+
+    history.push(selectedDocType === 4 ? "/single-invoice-doc" : "/single-doc");
+  };
+  const handleBulkDocClick = () => {
+    if (selectedDocType === null) return;
+
+    history.push(selectedDocType === 4 ? "/bulk-invoice-docs" : "/bulk-docs");
+  };
 
   return (
-    <div>
-      <h5 className="my-4">Select Document Type</h5>
-      <div className="d-flex justify-content-around row">
-        {OPTIONS?.map((opt, idx) => (
-          <div
-            key={opt.name}
-            onClick={() => setSelectedDocType(idx)}
-            className={`pointer border col-2 d-flex animate align-items-center justify-content-around py-2 flex-column rounded${
-              selectedDocType === idx ? " border-primary" : ""
-            }`}
-          >
-            {opt.icon} <p className="text-center">{opt.name}</p>
-          </div>
-        ))}
-      </div>
+    <>
+      <Header />
+      <div className="py-4" />
 
-      <div className="d-flex justify-content-center my-5">
-        <button className="btn btn-primary me-2">Single Document</button>
-        <button className="btn btn-primary ms-2">Bulk Documents</button>
+      <div className="container hei-100 my-5">
+        <h5 className="my-4">Select Document Type</h5>
+        <div className="d-flex justify-content-around row">
+          {OPTIONS?.map((opt, idx) => (
+            <div
+              key={opt.name}
+              onClick={() => setSelectedDocType(idx)}
+              className={`pointer border col-2 d-flex animate align-items-center justify-content-around py-2 flex-column rounded${
+                selectedDocType === idx ? " border-primary" : ""
+              }`}
+            >
+              {opt.icon} <p className="text-center">{opt.name}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="d-flex justify-content-center my-5">
+          <button
+            className="btn btn-primary me-2"
+            onClick={handleSingleDocClick}
+          >
+            Single Document
+          </button>
+          <button className="btn btn-primary ms-2" onClick={handleBulkDocClick}>
+            Bulk Documents
+          </button>
+        </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 };
 

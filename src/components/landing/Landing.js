@@ -1,7 +1,4 @@
 import { Link } from "react-router-dom";
-import Main from "../../pages/main/Main";
-import ContactUs from "../contactUs/ContactUs";
-import FAQs from "../FAQs/FAQs";
 
 const Landing = () => {
   return (
@@ -18,8 +15,8 @@ const Landing = () => {
             printing aer since the 1500s, when an unknown printer took a galley
             of type and scr
           </p>
-          <Link to="/login" className="ms-auto mx-auto">
-            Login / Register
+          <Link to="/main" className="btn btn-primary ms-auto mx-auto">
+            Getting Started
           </Link>
         </div>
         <div className="col-12 col-md-6 d-flex align-items-center">
@@ -30,69 +27,6 @@ const Landing = () => {
           />
         </div>
       </div>
-
-      <div id="features" className="border-bottom py-5 d-flex flex-column">
-        <h4>Features</h4>
-        <div
-          className="d-flex flex-wrap w-100 mb-5"
-          style={{
-            height: 200,
-          }}
-        >
-          <div className="col-6 col-md-3 p-3">
-            <div className="border w-100 h-100" />
-          </div>
-          <div className="col-6 col-md-3 p-3">
-            <div className="border w-100 h-100" />
-          </div>
-          <div className="col-6 col-md-3 p-3">
-            <div className="border w-100 h-100" />
-          </div>
-          <div className="col-6 col-md-3 p-3">
-            <div className="border w-100 h-100" />
-          </div>
-        </div>
-      </div>
-
-      <div id="pricing" className="border-bottom py-5 d-flex flex-column">
-        <h4>Pricing</h4>
-        <div
-          className="d-flex w-100 mb-5 flex-wrap"
-          style={{
-            height: 350,
-          }}
-        >
-          <div className="col-6 col-md-3 p-3">
-            <div className="border w-100 h-100 d-flex justify-content-between align-items-center flex-column py-4">
-              <h6>Trial</h6>
-              <button>Get Started</button>
-            </div>
-          </div>
-          <div className="col-6 col-md-3 p-3">
-            <div className="border w-100 h-100 d-flex justify-content-between align-items-center flex-column py-4">
-              <h6>Starter</h6>
-              <button>Select</button>
-            </div>
-          </div>
-          <div className="col-6 col-md-3 p-3">
-            <div className="border w-100 h-100 d-flex justify-content-between align-items-center flex-column py-4">
-              <h6>Premium</h6>
-              <button>Select</button>
-            </div>
-          </div>
-          <div className="col-6 col-md-3 p-3">
-            <div className="border w-100 h-100 d-flex justify-content-between align-items-center flex-column py-4">
-              <h6>Enterprise</h6>
-              <button>Select</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <FAQs />
-
-      <ContactUs />
-
-      <Main />
     </div>
   );
 };

@@ -15,18 +15,18 @@ const Header = () => {
           </h5>
         </div>
         <div className="col col-md-6 d-flex align-items-center justify-content-around">
-          <a href="#features" className="m-0 pointer link">
+          <Link to="/features" className="m-0 pointer link">
             Features
-          </a>
-          <a href="#pricing" className="m-0 pointer link">
+          </Link>
+          <Link to="/pricing" className="m-0 pointer link">
             Pricing
-          </a>
-          <a href="#FAQs" className="m-0 pointer link">
+          </Link>
+          <Link to="/FAQs" className="m-0 pointer link">
             FAQs
-          </a>
-          <a href="#contactUs" className="m-0 pointer link">
+          </Link>
+          <Link to="/contact-us" className="m-0 pointer link">
             Contact Us
-          </a>
+          </Link>
         </div>
         <div className="col-3 d-flex">
           <Link
