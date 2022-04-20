@@ -1,8 +1,28 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
-
+import { UserContext } from "../../contexts/UserContext";
+import { fetchPost } from "../../utils/fetchPost";
 const Login = () => {
+  const { updateValues } = useContext(UserContext);
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
+    updateValues("loading", true);
+    var formData = new FormData(e.target);
+    const email = formData.get("email");
+    const password = formData.get("password");
+
+    fetchPost("http://localhost:5000/login", "post", {
+      email,
+      password,
+    })
+      .then((res) => {
+        updateValues("user", res?.data);
+      })
+      .catch(() => {})
+      .finally(() => {
+        updateValues("loading", false);
+      });
   };
   return (
     <div className="hei-100 pb-5">
@@ -12,20 +32,20 @@ const Login = () => {
           onSubmit={handleFormSubmit}
           className="col-11 col-md-3 mx-auto mx-md-0"
         >
-          <div class="mb-3">
+          <div className="mb-3">
             <input
               type="email"
               required
-              class="form-control shadow-none"
+              className="form-control shadow-none"
               placeholder="Email*"
               name="email"
             />
           </div>
-          <div class="mb-3">
+          <div className="mb-3">
             <input
               type="password"
               required
-              class="form-control shadow-none"
+              className="form-control shadow-none"
               placeholder="Password*"
               name="password"
             />

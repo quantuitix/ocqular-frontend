@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Landing = () => {
   return (
-    <div className="container pt-5">
+    <div className="container pt-5 hei-100">
       <div className="border-bottom d-flex flex-column flex-md-row py-2 py-5">
         <div className="col-12 col-md-6 d-flex flex-column align-items-center justify-content-around p-5">
           <p>

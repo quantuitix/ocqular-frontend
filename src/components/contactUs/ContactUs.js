@@ -16,38 +16,38 @@ const ContactUs = () => {
             onSubmit={handleFormSubmit}
             className="col-11 col-md-4 mx-auto mx-md-0"
           >
-            <div class="mb-4">
+            <div className="mb-4">
               <input
                 required
                 type="text"
-                class="form-control shadow-none"
+                className="form-control shadow-none"
                 name="name"
                 placeholder="Name*"
               />
             </div>
-            <div class="mb-4">
+            <div className="mb-4">
               <input
                 required
                 type="text"
-                class="form-control shadow-none"
+                className="form-control shadow-none"
                 placeholder="Company Name*"
                 name="companyName"
               />
             </div>
-            <div class="mb-4">
+            <div className="mb-4">
               <input
                 required
                 type="email"
-                class="form-control shadow-none"
+                className="form-control shadow-none"
                 placeholder="Email*"
                 name="email"
               />
             </div>
-            <div class="mb-4">
+            <div className="mb-4">
               <input
                 required
                 type="number"
-                class="form-control shadow-none"
+                className="form-control shadow-none"
                 placeholder="Phone Number*"
                 name="phoneNumber"
               />

@@ -1,8 +1,11 @@
+import { useContext } from "react";
 import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import { UserContext } from "../../contexts/UserContext";
 const Header = () => {
   const history = useHistory();
+  const { user, updateValues } = useContext(UserContext);
   const navigate = (path) => {
     history.push(path);
   };
@@ -29,13 +32,21 @@ const Header = () => {
           </Link>
         </div>
         <div className="col-3 d-flex">
-          <Link
-            to="#"
-            onClick={() => navigate("/login")}
-            className="ms-auto link btn btn-primary"
-          >
-            Login / Register
-          </Link>
+          {!user ? (
+            <Link to="/login" className="ms-auto link btn btn-primary">
+              Login / Register
+            </Link>
+          ) : (
+            <button
+              className="ms-auto btn btn-primary"
+              onClick={() => {
+                updateValues("user", null);
+                history.push("/");
+              }}
+            >
+              Logout
+            </button>
+          )}
         </div>
       </div>
     </header>

@@ -3,10 +3,11 @@ import GridOnIcon from "@mui/icons-material/GridOn";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 import BadgeIcon from "@mui/icons-material/Badge";
 import ReceiptIcon from "@mui/icons-material/Receipt";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
+import { UserContext } from "../../contexts/UserContext";
 const OPTIONS = [
   {
     icon: <TextSnippetIcon style={{ width: "100%", height: 100 }} />,
@@ -33,6 +34,8 @@ const OPTIONS = [
 const Main = () => {
   const [selectedDocType, setSelectedDocType] = useState(null);
   const history = useHistory();
+  const { user } = useContext(UserContext);
+
   const handleSingleDocClick = () => {
     if (selectedDocType === null) return;
 
@@ -41,7 +44,13 @@ const Main = () => {
   const handleBulkDocClick = () => {
     if (selectedDocType === null) return;
 
-    history.push(selectedDocType === 4 ? "/bulk-invoice-docs" : "/bulk-docs");
+    history.push(
+      user
+        ? selectedDocType === 4
+          ? "/bulk-invoice-docs"
+          : "/bulk-docs"
+        : "/login"
+    );
   };
 
   return (
